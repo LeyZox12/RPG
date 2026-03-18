@@ -1,0 +1,37 @@
+{
+	"EN_US":
+	{
+		"messages":
+		[
+			[
+				"G'day $p$, I heard you're an adult now!",
+				"Still want to travel through the land ?",
+				"$i0$"
+			],
+			[
+				"Ah, you're back! Have you changed your mind ?",
+				"$i0$"
+			],
+			[
+				"Great to ear. Please take this",
+				"I don't know how worried I'll feel if \nYou don't have the BEST equipement",
+				"This one is free, but I still gotta put food on the table"
+			],
+			[
+				"Oh well, I guess you grew out of it",
+				"If you change your mind, come tell me so\nI can give you something that you will need",
+				"$m1$"
+			]
+		],
+		"prompts":
+		[
+			[
+				"Of course! I've waited for this moment\n all my life!$m2$",
+				"fuh nah$m3$"
+			],
+			[
+				"For FREE ???, I guess I'll take it then"
+			]
+		]
+	}
+}
