@@ -1,7 +1,8 @@
 extends Label
 
 @onready var timer = $Timer
-@onready var gm = $"../../.."
+@onready var gm = $"../../../../"
+@onready var player = $"../../../../Player"
 
 var currTxt = ""
 var currIndex = 0
@@ -11,7 +12,7 @@ var focusIndex = 0
 var npc = null
 
 
-var keyWords = ["p", "m", "i"]
+var keyWords = ["p", "m", "i", "c", "e"]
 
 
 func getTextFromKeyword(keyword:String):
@@ -22,8 +23,7 @@ func getTextFromKeyword(keyword:String):
 			promptValues[-1].msgId = keyword.to_int()
 		else:
 			npc.msgIndex = keyword.to_int()
-			npc.lineIndex = -1
-
+			npc.lineIndex = 0
 	elif keyword[0] == "i":
 		var n = keyword.to_int()
 		isInput = true
@@ -35,6 +35,12 @@ func getTextFromKeyword(keyword:String):
 			val.charPos = len(currTxt)
 			promptValues.push_back(val)
 			currTxt +=" "+ processText(prompts[i]) + "\n"
+	elif keyword[0] == "c":
+		keyword = keyword.substr(1, keyword.length())
+		$"../../Console".runCommand(keyword)
+	elif keyword[0] == "e":
+		$"../../../../Player".isTalking = false
+		$"..".visible = false
 	return ""
 
 func processText(txt):
@@ -57,6 +63,7 @@ func processText(txt):
 	return out
 
 func displayText(npc):
+	$"../".visible = true
 	self.npc = npc
 	if not isInput:
 		text = ""
@@ -69,7 +76,8 @@ func displayText(npc):
 		timer.start()
 
 func _input(event: InputEvent) -> void:
-
+	if player.disableInput:
+		return
 	if promptValues.size() != 0 and timer.is_stopped():
 		text[promptValues[focusIndex].charPos] = " "
 		if event.is_action_pressed("up"):
@@ -80,7 +88,7 @@ func _input(event: InputEvent) -> void:
 			focusIndex= focusIndex%promptValues.size()
 		elif event.is_action_pressed("interact") and isInput:
 			npc.msgIndex = promptValues[focusIndex].msgId
-			npc.lineIndex = -1
+			npc.lineIndex = 0
 			promptValues = []
 			isInput = false
 	if promptValues.size() != 0 and timer.is_stopped():

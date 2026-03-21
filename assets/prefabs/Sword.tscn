@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0854b1408tgc"]
+
+[ext_resource type="Texture2D" uid="uid://cdg31i5ev6f1g" path="res://assets/Items/sword.png" id="1_jftcd"]
+[ext_resource type="Script" uid="uid://jjcbusbfvpt2" path="res://assets/prefabs/swordSwing.gd" id="1_sca0p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sca0p"]
+radius = 2.0
+height = 18.0
+
+[node name="Node2D" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_sca0p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+shape = SubResource("CapsuleShape2D_sca0p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_jftcd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

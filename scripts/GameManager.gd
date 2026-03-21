@@ -3,12 +3,14 @@ extends Node
 var lang = "EN_US"
 var playerName = "Tom"
 
+var itemRegistry = ItemRegistry.new()
+
 func loadRoom(path):
 	var map = load(path)
 	var instance = map.instantiate()
 	add_child(instance)
 func _ready():
-	loadRoom("res://0_0.tscn")
+	#loadRoom("res://0_0.tscn")
 	loadSettings()
 
 

@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://vp5dcwlby40e"]
+
+[ext_resource type="Texture2D" uid="uid://clh1vnrtc604v" path="res://assets/UI/outline.png" id="1_uy2vd"]
+[ext_resource type="Script" uid="uid://rsusdlvso224" path="res://assets/prefabs/DestroyParent.gd" id="2_k7ipx"]
+
+[node name="Control" type="Control"]
+z_index = 102
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6174785, 0.6174785)
+
+[node name="Outline" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -117.99999
+offset_top = -118.99999
+offset_right = -101.99999
+offset_bottom = -102.99999
+scale = Vector2(14.6637125, 14.6637125)
+texture = ExtResource("1_uy2vd")
+
+[node name="Item" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -75.0
+offset_top = -74.0
+offset_right = -59.0
+offset_bottom = -58.0
+scale = Vector2(9.099267, 9.099267)
+texture = ExtResource("1_uy2vd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+script = ExtResource("2_k7ipx")
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

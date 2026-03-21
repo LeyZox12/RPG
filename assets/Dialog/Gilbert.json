@@ -14,8 +14,10 @@
 			],
 			[
 				"Great to ear. Please take this",
+				"$cspecialgive sword$",
 				"I don't know how worried I'll feel if \nYou don't have the BEST equipement",
-				"This one is free, but I still gotta put food on the table"
+				"This one is free, just make sure not to\ndie out here allright ?",
+				"$e$"
 			],
 			[
 				"Oh well, I guess you grew out of it",

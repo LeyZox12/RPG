@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://da5hb0jvwkwjw"]
+
+[ext_resource type="Texture2D" uid="uid://cc0il0qv2iwis" path="res://assets/UI/background.png" id="1_kk0jo"]
+
+[node name="Preview" type="TextureRect"]
+custom_minimum_size = Vector2(0, 40)
+offset_right = 512.95
+offset_bottom = 40.0
+texture = ExtResource("1_kk0jo")
+
+[node name="Label" type="Label" parent="."]
+z_index = 101
+layout_mode = 0
+offset_left = 5.0
+offset_top = -3.0
+offset_right = 62.0
+offset_bottom = 20.0
+scale = Vector2(1.6390555, 1.6390555)
