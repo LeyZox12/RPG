@@ -23,7 +23,7 @@ func getTextFromKeyword(keyword:String):
 			promptValues[-1].msgId = keyword.to_int()
 		else:
 			npc.msgIndex = keyword.to_int()
-			npc.lineIndex = 0
+		npc.lineIndex = 0
 	elif keyword[0] == "i":
 		var n = keyword.to_int()
 		isInput = true

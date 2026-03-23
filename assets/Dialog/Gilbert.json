@@ -14,8 +14,7 @@
 			],
 			[
 				"Great to ear. Please take this",
-				"$cspecialgive sword$",
-				"I don't know how worried I'll feel if \nYou don't have the BEST equipement",
+				"I don't know how worried I'll feel if \nYou don't have the BEST equipement$cspecialgive sword 0$",
 				"This one is free, just make sure not to\ndie out here allright ?",
 				"$e$"
 			],
@@ -23,6 +22,16 @@
 				"Oh well, I guess you grew out of it",
 				"If you change your mind, come tell me so\nI can give you something that you will need",
 				"$m1$"
+			],
+			[
+				"What is it ?$i3$"
+			],
+			[
+				"Dont worry about it.\nShe'll be fine.",
+				"You need to enjoy life$m4$$e$"
+			],
+			[
+				"Oh, okay then, have a nice day$m4$$e$"
 			]
 		],
 		"prompts":
@@ -33,6 +42,10 @@
 			],
 			[
 				"For FREE ???, I guess I'll take it then"
+			],
+			[
+				"I hope ma's gonna be alright$m$",
+				"Nothing"
 			]
 		]
 	}
