@@ -17,8 +17,7 @@ func getPossible(str):
 
 func runCommand(str):
 	var cmd = str.split(" ")
-	if cmd.size() != 0 &&\
-	cmd.size() == commandRegistry.commands[cmd[0]].argNames.size()+1:
+	if cmd.size() != 0:
 		var args = []
 		for i in range(cmd.size()):
 			if i != 0:
@@ -26,9 +25,14 @@ func runCommand(str):
 		commandRegistry.commands[cmd[0]].task(args, $"../../..")
 
 func _input(event):
+	if not visible or not $Input.has_focus():
+		return
 	if event.is_action_pressed("confirm"):
 		runCommand($Input.text)
-		$Input.text = ""
+		call_deferred("empty")
+
+func empty():
+	$Input.text = ""
 
 func _onInputUpdate():
 	var str = $Input.text
