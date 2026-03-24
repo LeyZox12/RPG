@@ -7,7 +7,7 @@ extends Control
 var currIndex = 0
 
 func equipFunc(itmIndex):
-	player.equipedItemIndex = itmIndex
+	player.equip(itmIndex)
 func infoFunc(itmIndex):
 	pass
 func cancelFunc(itmIndex):
@@ -28,11 +28,15 @@ func previous():
 
 func click():
 	var funcs = [equipFunc, infoFunc, cancelFunc]
-	funcs[currIndex].call($"..".get_child($"..".focusIndex+1))
+	funcs[currIndex].call($"..".focusIndex)
 
 
 func _on_visibility_changed() -> void:
 	if visible:
 		btns[0].grab_focus()
+		if player.equipedItemIndex == $"..".focusIndex:
+			btns[0].text = "Unequip"
+		else:
+			btns[0].text = "Equip"
 	else:
 		$"..".updateFocus()

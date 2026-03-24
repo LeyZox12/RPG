@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://gt4rrmcjly2f"]
+[gd_scene load_steps=43 format=4 uid="uid://gt4rrmcjly2f"]
 
 [ext_resource type="Script" uid="uid://cwahqbhxoll43" path="res://scripts/GameManager.gd" id="1_epypp"]
 [ext_resource type="Texture2D" uid="uid://bhci5277t3skn" path="res://assets/Player/SpriteSheets/idle.png" id="2_0hol4"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://b8a4gk3qo2013" path="res://Console.gd" id="4_rj586"]
 [ext_resource type="Script" uid="uid://diy14enqrxjrs" path="res://inventory.gd" id="7_0h7mo"]
 [ext_resource type="Script" uid="uid://cn5bquotrinx6" path="res://MenuPrompt.gd" id="7_x0ka3"]
+[ext_resource type="Texture2D" uid="uid://clh1vnrtc604v" path="res://assets/UI/outline.png" id="10_d2bti"]
 [ext_resource type="Script" uid="uid://ckibklsxjefb" path="res://scripts/Gilbert.gd" id="10_hqns4"]
 [ext_resource type="Texture2D" uid="uid://l11c66cgfqms" path="res://assets/World/LeafEld/NPC/gilbert_ingame.png" id="10_ir8iy"]
 
@@ -1365,7 +1366,6 @@ layout_mode = 2
 flip_v = true
 
 [node name="Inventory" type="Control" parent="Camera2D/Control"]
-visible = false
 anchors_preset = 0
 offset_left = -179.0
 offset_top = -101.0
@@ -1407,7 +1407,7 @@ script = ExtResource("7_x0ka3")
 layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
-offset_right = 39.0
+offset_right = 57.73829
 offset_bottom = 39.0
 scale = Vector2(1.4130477, 2.1277575)
 texture = ExtResource("3_d21ai")
@@ -1431,6 +1431,15 @@ text = "Info"
 [node name="B3" type="Button" parent="Camera2D/Control/Inventory/Prompt/VBoxContainer"]
 layout_mode = 2
 text = "Cancel"
+
+[node name="Equiped" type="TextureRect" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = -100.0
+offset_right = 176.0
+offset_bottom = -81.0
+texture = ExtResource("10_d2bti")
+stretch_mode = 2
 
 [node name="Player" type="RigidBody2D" parent="."]
 gravity_scale = 0.0

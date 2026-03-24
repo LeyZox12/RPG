@@ -61,6 +61,8 @@ func _input(event: InputEvent) -> void:
 		else:
 			equipPrompt = true
 			prompt.visible = true
+	if event.is_action_pressed("use") and equipedItemIndex != NO_ITEM:
+		inventory[equipedItemIndex].onUse(self)
 		
 	if event.is_action_pressed("interact") and isTalking:
 		dialogBox.displayText(talkingNpc)
@@ -71,6 +73,14 @@ func addItem(item):
 	l.text = item.displayName
 	l.set_meta("id", item.id)
 	inventoryUI.get_node("VBoxContainer").call_deferred("add_child", l)
+
+func equip(index):
+	if index == equipedItemIndex:
+		$"../Camera2D/Control/Equiped".texture = null
+		equipedItemIndex = NO_ITEM
+	else:
+		$"../Camera2D/Control/Equiped".texture = inventory[index].inventorySprite
+		equipedItemIndex = index
 
 
 func initDialog(npc):
